@@ -5,6 +5,7 @@ namespace calcualtor
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        /// new
         [STAThread]
         static void Main()
         {

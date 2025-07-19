@@ -8,6 +8,7 @@
         bool isFirstNumber = true;
         bool isFirstopt = true;
         bool shouldResetDisplay = false; // افزودن این متغیر برای مدیریت ریست نمایشگر
+        // -- 
 
         public Form1()
         {
