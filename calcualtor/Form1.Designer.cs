@@ -48,6 +48,9 @@
             display = new Label();
             changeSignBtn = new Button();
             btnPoint = new Button();
+            sinBtn = new Button();
+            cosBtn = new Button();
+            absBtn = new Button();
             SuspendLayout();
             // 
             // number1
@@ -258,7 +261,7 @@
             // 
             display.AutoSize = true;
             display.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            display.Location = new Point(12, 162);
+            display.Location = new Point(12, 92);
             display.Name = "display";
             display.Size = new Size(42, 50);
             display.TabIndex = 17;
@@ -288,11 +291,50 @@
             btnPoint.UseVisualStyleBackColor = false;
             btnPoint.Click += handleNumberClick;
             // 
+            // sinBtn
+            // 
+            sinBtn.BackColor = Color.White;
+            sinBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            sinBtn.Location = new Point(76, 173);
+            sinBtn.Name = "sinBtn";
+            sinBtn.Size = new Size(58, 40);
+            sinBtn.TabIndex = 20;
+            sinBtn.Text = "sin";
+            sinBtn.UseVisualStyleBackColor = false;
+            sinBtn.Click += mathOpt;
+            // 
+            // cosBtn
+            // 
+            cosBtn.BackColor = Color.White;
+            cosBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cosBtn.Location = new Point(140, 173);
+            cosBtn.Name = "cosBtn";
+            cosBtn.Size = new Size(58, 40);
+            cosBtn.TabIndex = 21;
+            cosBtn.Text = "cos";
+            cosBtn.UseVisualStyleBackColor = false;
+            cosBtn.Click += mathOpt;
+            // 
+            // absBtn
+            // 
+            absBtn.BackColor = Color.White;
+            absBtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            absBtn.Location = new Point(204, 173);
+            absBtn.Name = "absBtn";
+            absBtn.Size = new Size(58, 40);
+            absBtn.TabIndex = 22;
+            absBtn.Text = "abs";
+            absBtn.UseVisualStyleBackColor = false;
+            absBtn.Click += mathOpt;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(268, 450);
+            Controls.Add(absBtn);
+            Controls.Add(cosBtn);
+            Controls.Add(sinBtn);
             Controls.Add(btnPoint);
             Controls.Add(changeSignBtn);
             Controls.Add(display);
@@ -342,5 +384,8 @@
         private Label display;
         private Button changeSignBtn;
         private Button btnPoint;
+        private Button sinBtn;
+        private Button cosBtn;
+        private Button absBtn;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace calcualtor
+﻿using System.Diagnostics;
+
+namespace calcualtor
 {
     public partial class Form1 : Form
     {
@@ -79,12 +81,16 @@
                 display.Text = currentText;
                 setToNumber(currentText);
             }
+            //if (display.Text.Length <= 0)
+            //{
+            //    display.Text = "0";
+            //}
             this.ActiveControl = display;
         }
 
         private void clear_Click(object sender, EventArgs e)
         {
-            display.Text = "";
+            display.Text = "0";
             numb1 = 0;
             numb2 = 0;
             opt = "";
@@ -231,6 +237,43 @@
             }
             this.ActiveControl = display;
         }
-        
+
+        private void mathOpt(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(display.Text))
+            {
+                MessageBox.Show("you should enter a number to calulate a math operation for it!");
+                return;
+            }
+            else
+            {
+                Button MathBtn = (Button)sender;
+                string whichMathStr = MathBtn.Text;
+
+
+                if (double.TryParse(display.Text, out double currentNumber))
+                {
+                    switch (whichMathStr)
+                    {
+                        case "sin": currentNumber = Math.Sin((currentNumber * Math.PI) / 180); break;//converting degree to radian;
+                        case "cos": currentNumber = Math.Cos((currentNumber * Math.PI) / 180); break;//converting degree to radian;
+                        case "abs": currentNumber = Math.Abs(currentNumber); break;//converting degree to radian;
+                    }
+
+                    display.Text = currentNumber.ToString("0.####");
+
+                    if (isFirstNumber || string.IsNullOrEmpty(opt))
+                        numb1 = currentNumber;
+                    else
+                        numb2 = currentNumber;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid number format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                this.ActiveControl = display;
+            }
+
+        }
     }
 }
