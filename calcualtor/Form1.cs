@@ -238,6 +238,7 @@ namespace calcualtor
             this.ActiveControl = display;
         }
 
+        //handling sin cos abs buttons with the following function
         private void mathOpt(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(display.Text))
